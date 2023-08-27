@@ -7,27 +7,16 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public List<GameObject> targets;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI gameOverText;
-    public Button restartButton;
-    public GameObject titleScreen;
     public bool isGameActive;
+
+    [SerializeField] private List<GameObject> targets;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private Button restartButton;
+    [SerializeField] private GameObject titleScreen;
 
     private int score;
     private float spawnRate = 1.0f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     IEnumerator SpawnTarget()
     {
@@ -42,13 +31,13 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        scoreText.text = "Score: "+ score;
+        scoreText.text = "Score: " + score;
     }
 
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(true);        
+        restartButton.gameObject.SetActive(true);
         isGameActive = false;
     }
 
